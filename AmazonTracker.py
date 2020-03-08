@@ -6,8 +6,6 @@ import requests
 from datetime import date
 from bs4 import BeautifulSoup
 from config import config
-import os 
-print(os.getcwd())
 
 def get_price(url):
 
@@ -33,6 +31,6 @@ if __name__ == "__main__":
     with open('pricing.csv','a') as csvfile:
         fieldnames = ['Date', 'Price']
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
-        writer.writeheader()
+        writer.writeheader() # Run first to create header for .csv file
         writer.writerow({'Date': date, 'Price': data})
         csvfile.close()
